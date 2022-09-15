@@ -1,4 +1,4 @@
-name: Production workflow
+name: Development workflow
 
 on:
   push:
@@ -8,18 +8,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use Node.js 17.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 17.x
-      - run: npm install
-      - run: npm run build --if-present
+      - uses: actions/checkout@v3
       - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
+        uses: gonuit/heroku-docker-deploy@v1.3.3 
         with:
-          heroku_api_key: ${{ 5d6db788-44ed-41ee-8a06-b3e2e2e46ef7 }}
-          heroku_app_name: 'prj-heroku-ci-cd'
-          heroku_email: 'phamdat128@gmail.com'
+          heroku_api_key: 5d6db788-44ed-41ee-8a06-b3e2e2e46ef7
+          heroku_app_name: 'prj-heroku-sample'
+          email: 'phamdat128@gmail.com'
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile
+          docker_options: "--no-cache"
+          process_type: web
