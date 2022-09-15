@@ -15,7 +15,7 @@ jobs:
         uses: gonuit/heroku-docker-deploy@v1.3.3 
         with:
           heroku_api_key: 5d6db788-44ed-41ee-8a06-b3e2e2e46ef7
-          heroku_app_name: 'prj-heroku-sample'
+          heroku_app_name: 'prj-heroku-ci-cd'
           email: 'phamdat128@gmail.com'
           dockerfile_directory: ./
           dockerfile_name: Dockerfile

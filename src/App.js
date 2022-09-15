@@ -1,7 +1,12 @@
+import React, { useEffect} from "react"
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import axios from "axios"
+ function App() {
+useEffect(()=>{
+  var data = axios.get("https://prj-heroku-golang-sample.herokuapp.com/")
+  console.log(data)
+},[])
   return (
     <div className="App">
       <header className="App-header">
